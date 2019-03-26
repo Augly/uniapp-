@@ -1,0 +1,55 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {}
+		}
+        ,{
+            "path" : "pages/class/class",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/ordel/ordel",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/list/list",
+            "style" : {}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "小蓝猪",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF"
+	},
+	"tabBar":{
+		"color":"#686868",
+		"selectedColor":"#2DABF7",
+		"backgroundColor":"#FFFFFF",
+		"list":[{
+			"pagePath":"pages/index/index",
+			"text":"首页",
+			"iconPath":"static/shouye-weixuanzhong%20拷贝@2x.png",
+			"selectedIconPath":"static/图层%2033@2x.png"
+		},
+		{
+			"pagePath":"pages/class/class",
+			"text":"分类",
+			"iconPath":"static/fenlei-3@2x.png",
+			"selectedIconPath":"static/图层%2044@2x.png"
+		},
+		{
+			"pagePath":"pages/ordel/ordel",
+			"text":"订单",
+			"iconPath":"static/dingdanguanli-@2x.png",
+			"selectedIconPath":"static/dingdanguanli-%20拷贝@2x.png"
+		},
+		{
+			"pagePath":"pages/list/list",
+			"text":"清单",
+			"iconPath":"static/qingdan@2x.png",
+			"selectedIconPath":"static/qingdan%20拷贝%202@2x.png"
+		}]
+	}
+}
