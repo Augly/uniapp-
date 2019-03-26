@@ -16,6 +16,10 @@
             "path" : "pages/list/list",
             "style" : {}
         }
+        ,{
+            "path" : "pages/personl/personl",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -50,6 +54,13 @@
 			"text":"清单",
 			"iconPath":"static/qingdan@2x.png",
 			"selectedIconPath":"static/qingdan%20拷贝%202@2x.png"
-		}]
+		},
+		{
+			"pagePath":"pages/personl/personl",
+			"text":"我的",
+			"iconPath":"static/wode-@2x.png",
+			"selectedIconPath":"static/椭圆%209@2x.png"
+		}
+		]
 	}
 }
