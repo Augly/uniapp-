@@ -2,8 +2,8 @@
 	<view class="content">
 		<!-- 搜索组件 -->
 		<view class="inputGroup">
-			<image src="../../static/搜索-互动@2x.png"></image>
-			<input type="text" value="" placeholder="搜索" />
+			<text class="iconfont icon-sousuo"></text>
+			<input type="text" value="" placeholder="搜索" disabled/>
 		</view>
 		<!-- 轮播图组件 -->
 		<view class="imageGroup">
@@ -39,15 +39,15 @@
 			<view class="zeroConter"></view>
 			<view class="zeroMintitle">
 				<block>
-					<image src="../../static/shuliang@2x.png" mode="" class="icon"></image>
+					<text class="iconfont icon-shuliang"></text>
 					<span>数量：7</span>
 				</block>
 				<block>
-					<image src="../../static/youxiaoqi@2x.png" mode="" class="icon"></image>
+					<text class="iconfont icon-zuqizhong"></text>
 					<span>租期：7日</span>
 				</block>
 				<block>
-					<image src="../../static/jinqian@2x.png" mode="" class="icon"></image>
+					<text class="iconfont icon-jiage"></text>
 					<span>价格：￥0.00/日</span>
 				</block>
 			</view>
@@ -142,6 +142,36 @@
 				</scroll-view>
 			</view>
 		</view>
+		<view class="listTwo">
+			<view class="listTitle">
+				<span class="title">热门产品</span>
+				<span class="more">查看更多</span>
+				<image src="../../static/返回%20拷贝%203@2x.png" mode=""></image>
+			</view>
+			<view class="listContent">
+				<view class="listWrap">
+					<view class="imgWrap"></view>
+					<view class="listRes">
+						<span class="title">Bose蓝牙耳机</span>
+						<span class="price">￥20.00/天</span>
+					</view>
+				</view>
+				<view class="listWrap">
+					<view class="imgWrap"></view>
+					<view class="listRes">
+						<span class="title">Bose蓝牙耳机</span>
+						<span class="price">￥20.00/天</span>
+					</view>
+				</view>
+				<view class="listWrap">
+					<view class="imgWrap"></view>
+					<view class="listRes">
+						<span class="title">Bose蓝牙耳机</span>
+						<span class="price">￥20.00/天</span>
+					</view>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -165,7 +195,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .content {
 	position: relative;
 	width: 100%;
@@ -279,9 +309,11 @@ export default {
 		width: 100%;
 		display: flex;
 		align-items: center;
-		.icon {
-			width: 25upx;
-			height: 25upx;
+		.iconfont{
+			font-size: 25upx !important;
+			color: rgba(102, 102, 102, 1);
+			display: block;
+			line-height: 27.77upx;
 		}
 		span {
 			font-size: 25upx;
@@ -347,7 +379,7 @@ export default {
 .listOne {
 	width: 100%;
 	box-sizing: border-box;
-	padding: 0upx 0upx 0upx 22.22upx;
+	padding:  27.77upx 0upx 0upx 22.22upx;
 	.listTitle {
 		width: 100%;
 		height: auto;
@@ -387,7 +419,7 @@ export default {
 			display: inline-block;
 			white-space: nowrap;
 			width: 204.16upx;
-			height: 312.5upx;
+			// height: 312.5upx;
 			margin-right: 15.27upx;
 			.imgWrap {
 				width: 100%;
@@ -416,7 +448,78 @@ export default {
 		}
 	}
 }
+//列表组件2
+.listTwo{
+	width: 100%;
+	box-sizing: border-box;
+	padding:  27.77upx 0upx 0upx 22.22upx;
+	.listTitle {
+		width: 100%;
+		height: auto;
+		box-sizing: border-box;
+		padding: 0upx 22.22upx 0upx 0upx;
+		display: flex;
+		align-items: center;
+		margin: 27.77upx 0upx;
+		justify-items: flex-end;
+		.title {
+			font-size: 34.72upx;
+			font-family: PingFangSC-Regular;
+			font-weight: 400;
+			color: rgba(51, 51, 51, 1);
+			margin-right: auto;
+		}
+		.more {
+			font-size: 25upx;
+			font-family: PingFangSC-Regular;
+			font-weight: 400;
+			color: rgba(153, 153, 153, 1);
+		}
+		image {
+			width: 13.88upx;
+			height: 25upx;
+			margin-left: 13.88upx;
+		}
+	}
+	.listContent{
+		width: 100%;
+		height: auto;
+		box-sizing: border-box;
+		padding: 0upx 22.22upx 0upx 0upx;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		.listWrap{
+			width: 343.05upx;
+			margin-bottom: 27.77upx;
+			.imgWrap {
+				width: 100%;
+				height: 344.44upx;
+				background-color: red;
+			}
+				.listRes {
+						width: 100%;
+						height: 83.33upx;
+						margin-top: 25upx;
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+			
+						.title {
+							font-size: 31.94upx;
+							font-weight: 400;
+							color: rgba(0, 0, 0, 1);
+						}
+						.price {
+							font-size: 25upx;
+							font-weight: 400;
+							color: rgba(45, 171, 247, 1);
+						}
+			}
+		}
+	}
 
+}
 .uni-bg-red {
 	background-color: red;
 }
