@@ -48,6 +48,12 @@
 </script>
 
 <style lang="less">
+	@import (reference) '../../common/public.less';
+	page {
+		@relative();
+		@wh100();
+		.backcolor(RGBA(255, 255, 255, 1));
+	}
 	.content {
 		box-sizing: border-box;
 

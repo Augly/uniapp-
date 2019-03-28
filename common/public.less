@@ -1,0 +1,141 @@
+@flex: {
+	display: flex;
+	align-items: center;
+}
+
+@fley: {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+@flexXL: {
+	@flex();
+	justify-content: flex-start;
+}
+
+@flexXB: {
+	@flex();
+	justify-content: space-between;
+}
+
+@flexXR: {
+	@flex();
+	justify-content: flex-end;
+}
+
+@flexYL: {
+	@fley();
+	justify-content: flex-start;
+}
+
+@flexYB: {
+	@fley();
+	justify-content: space-between;
+}
+@oneLine: {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.twoLine(@n) {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: @n;
+	overflow: hidden;
+}
+@flexYR: {
+	@fley();
+	justify-content: flex-end;
+}
+
+.borderL(...) {
+	border-left: @arguments;
+}
+
+.borderR(...) {
+	border-right: @arguments;
+}
+
+.borderT(...) {
+	border-top: @arguments;
+}
+
+.borderB(...) {
+	border-bottom: @arguments;
+}
+
+.border(...) {
+	border: @arguments;
+}
+
+.boxCent {
+	box-sizing: border-box;
+}
+
+.padding(...) {
+	padding: @arguments;
+}
+
+.margin(...) {
+	margin: @arguments;
+}
+.backcolor(@color) {
+	background-color: @color;
+}
+@white: {
+	background-color: rgba(255, 255, 255, 1);
+}
+.setWh(@w,@h) {
+	width: @w;
+	height: @h;
+}
+@blue: {
+	background-color: rgba(45, 171, 247, 1);
+}
+
+@ordelColor: {
+	background-color: rgba(45, 171, 247, 0.7);
+}
+.br(@size) {
+	border-radius: @size;
+}
+.price(@color: rgba(0, 0, 0, 1)) {
+	font-size: 22.22upx;
+	color: @color;
+}
+
+@bottom: {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: 0;
+}
+
+@top: {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	top: 0;
+}
+
+@left: {
+	position: absolute;
+	left: 0;
+}
+@relative: {
+	position: relative;
+}
+@right: {
+	position: absolute;
+	right: 0;
+}
+@wh100: {
+	width: 100%;
+	height: 100%;
+}
+@center: {
+	text-align: center;
+}

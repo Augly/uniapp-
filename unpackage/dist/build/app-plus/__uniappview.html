@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+    <head>
+        <meta charset="UTF-8" />
+        <script>
+            var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') || CSS.supports('top: constant(a)'))
+            document.write('<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' + (coverSupport ? ', viewport-fit=cover' : '') + '" />')
+        </script>
+        <title>View</title>
+        <style>
+            * {
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            input[type="search"i]::-webkit-search-cancel-button {
+                display: none;
+            }
+
+        </style>
+        <script>
+            var __wxConfig = {"debug":false,"appname":"小蓝猪项目","entryPagePath":"pages/index/index.html","page":{"pages/index/index.html":{"window":{"backgroundColor":"#FFFFFF"}},"pages/logistics/logistics.html":{"window":{"navigationBarTitleText":"查看物流"}},"pages/class/class.html":{"window":{}},"pages/ordel/ordel.html":{"window":{"navigationBarTitleText":"订单列表"}},"pages/list/list.html":{"window":{}},"pages/personl/personl.html":{"window":{}}},"global":{"window":{"navigationBarTextStyle":"black","navigationBarTitleText":"小蓝猪","navigationBarBackgroundColor":"#FFFFFF","backgroundColor":"#FFFFFF"}},"tabBar":{"color":"#686868","selectedColor":"#2DABF7","backgroundColor":"#FFFFFF","borderStyle":"black","list":[{"pagePath":"pages/index/index.html","text":"首页","iconPath":"static/shouye-weixuanzhong%20拷贝@2x.png","selectedIconPath":"static/图层%2033@2x.png"},{"pagePath":"pages/class/class.html","text":"分类","iconPath":"static/fenlei-3@2x.png","selectedIconPath":"static/图层%2044@2x.png"},{"pagePath":"pages/ordel/ordel.html","text":"订单","iconPath":"static/dingdanguanli-@2x.png","selectedIconPath":"static/dingdanguanli-%20拷贝@2x.png"},{"pagePath":"pages/list/list.html","text":"清单","iconPath":"static/qingdan@2x.png","selectedIconPath":"static/qingdan%20拷贝%202@2x.png"},{"pagePath":"pages/personl/personl.html","text":"我的","iconPath":"static/wode-@2x.png","selectedIconPath":"static/椭圆%209@2x.png"}],"position":"bottom"},"networkTimeout":{"request":60000,"connectSocket":60000,"uploadFile":60000,"downloadFile":60000},"platform":"devtools","pages":["pages/index/index","pages/logistics/logistics","pages/class/class","pages/ordel/ordel","pages/list/list","pages/personl/personl"],"subPackages":[],"usingComponents":{},"splashscreen":{"alwaysShowBeforeRender":true,"autoclose":false}}
+
+        </script>
+        <script>
+            var __id__ = '';
+            window.__dispatchGenerateFunc__ = function(page) {
+                __id__ = page;
+                document.title = page;
+                // window.history.pushState('', '', page);
+                plus.webview.currentWebview().setJsFile('_www/' + page.replace('.html', '.js'));
+            };
+
+        </script>
+        <script src="__uniappes6.js"></script>
+        <script src="uniapp://ready"></script>
+    </head>
+
+    <body>
+        <div></div>
+    </body>
+
+</html>

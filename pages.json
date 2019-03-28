@@ -27,7 +27,11 @@
 			"path": "pages/personl/personl",
 			"style": {}
 		}
-	],
+	    ,{
+            "path" : "pages/ordel/ordelRes/ordelRes",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "小蓝猪",

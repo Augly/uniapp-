@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logistics/logistics",
+    "pages/class/class",
+    "pages/ordel/ordel",
+    "pages/list/list",
+    "pages/personl/personl"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "小蓝猪",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF"
+  },
+  "usingComponents": {},
+  "tabBar": {
+    "color": "#686868",
+    "selectedColor": "#2DABF7",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/shouye-weixuanzhong%20拷贝@2x.png",
+        "selectedIconPath": "static/图层%2033@2x.png"
+      },
+      {
+        "pagePath": "pages/class/class",
+        "text": "分类",
+        "iconPath": "static/fenlei-3@2x.png",
+        "selectedIconPath": "static/图层%2044@2x.png"
+      },
+      {
+        "pagePath": "pages/ordel/ordel",
+        "text": "订单",
+        "iconPath": "static/dingdanguanli-@2x.png",
+        "selectedIconPath": "static/dingdanguanli-%20拷贝@2x.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "清单",
+        "iconPath": "static/qingdan@2x.png",
+        "selectedIconPath": "static/qingdan%20拷贝%202@2x.png"
+      },
+      {
+        "pagePath": "pages/personl/personl",
+        "text": "我的",
+        "iconPath": "static/wode-@2x.png",
+        "selectedIconPath": "static/椭圆%209@2x.png"
+      }
+    ]
+  },
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "小蓝猪项目"
+}
