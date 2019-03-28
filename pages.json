@@ -7,6 +7,13 @@
 			}
 		},
 		{
+			"path": "pages/personl/authentication/authentication",
+			"style": {
+				"navigationBarTitleText": "实名认证"
+			}
+		},
+
+		{
 			"path": "pages/logistics/logistics",
 			"style": {
 				"navigationBarTitleText": "查看物流"
@@ -26,12 +33,12 @@
 		}, {
 			"path": "pages/personl/personl",
 			"style": {}
+		}, {
+			"path": "pages/ordel/ordelRes/ordelRes",
+			"style": {}
 		}
-	    ,{
-            "path" : "pages/ordel/ordelRes/ordelRes",
-            "style" : {}
-        }
-    ],
+
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "小蓝猪",
@@ -45,32 +52,32 @@
 		"list": [{
 				"pagePath": "pages/index/index",
 				"text": "首页",
-				"iconPath": "static/shouye-weixuanzhong%20拷贝@2x.png",
-				"selectedIconPath": "static/图层%2033@2x.png"
+				"iconPath": "static/1-1.png",
+				"selectedIconPath": "static/1-2.png"
 			},
 			{
 				"pagePath": "pages/class/class",
 				"text": "分类",
-				"iconPath": "static/fenlei-3@2x.png",
-				"selectedIconPath": "static/图层%2044@2x.png"
+				"iconPath": "static/2-1.png",
+				"selectedIconPath": "static/2-2.png"
 			},
 			{
 				"pagePath": "pages/ordel/ordel",
 				"text": "订单",
-				"iconPath": "static/dingdanguanli-@2x.png",
-				"selectedIconPath": "static/dingdanguanli-%20拷贝@2x.png"
+				"iconPath": "static/3-1.png",
+				"selectedIconPath": "static/3-2.png"
 			},
 			{
 				"pagePath": "pages/list/list",
 				"text": "清单",
-				"iconPath": "static/qingdan@2x.png",
-				"selectedIconPath": "static/qingdan%20拷贝%202@2x.png"
+				"iconPath": "static/4-1.png",
+				"selectedIconPath": "static/4-2.png"
 			},
 			{
 				"pagePath": "pages/personl/personl",
 				"text": "我的",
-				"iconPath": "static/wode-@2x.png",
-				"selectedIconPath": "static/椭圆%209@2x.png"
+				"iconPath": "static/5-1.png",
+				"selectedIconPath": "static/5-2.png"
 			}
 		]
 	}

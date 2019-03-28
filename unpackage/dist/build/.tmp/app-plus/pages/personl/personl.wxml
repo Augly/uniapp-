@@ -1,2 +1,2 @@
 <import src="./personl.vue.wxml" />
-    <template is="f12a5a50" data="{{ ...$root['0'], $root }}"/>
+    <template is="31f7cd2c" data="{{ ...$root['0'], $root }}"/>

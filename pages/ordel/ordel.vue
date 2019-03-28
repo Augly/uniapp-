@@ -1,13 +1,8 @@
 <template>
 	<view class="content">
 		<view class="headWrap">
-			<view
-				class="headList"
-				:class="activeIndex == index ? 'active' : ''"
-				v-for="(item, index) in tabList"
-				:key="index"
-				@click="getIndex(index)"
-			>
+			<view class="headList" :class="activeIndex == index ? 'active' : ''" v-for="(item, index) in tabList" :key="index"
+			 @click="getIndex(index)">
 				{{ item.title }}({{ item.value }})
 			</view>
 		</view>
@@ -60,17 +55,17 @@
 						<view class="itemContent">
 							<view class="itemTitle">
 								<span class="date">2019.03.14-2019.04.25 (43天)</span>
-								<span class="type">已预约</span>
+								<span class="type">使用中</span>
 							</view>
 							<view class="shopRes">
 								<view class="shopLogo"></view>
 								<view class="shopDetail">
 									<view class="titleGroup">
-										<view class="title">
+										<view class="title title100">
 											更能打 8GB+128GB 网 通4G 双卡双待更能打 8GB+128GB 网
 											通4G 双卡双待
 										</view>
-										<view class="button" @click.stop="tologi">查看物流</view>
+										<!-- <view class="button" @click.stop="tologi">查看物流</view> -->
 									</view>
 									<view class="money">
 										<span class="moneyTitle">押金：</span>
@@ -83,8 +78,8 @@
 								</view>
 							</view>
 							<view class="itempay">
-								<span class="price">已支付：</span>
-								<span class="money">￥1726.55</span>
+								<view class="goOn" @click.stop="toTop">续租</view>
+								<view class="button">去归还</view>
 							</view>
 						</view>
 					</view>
@@ -99,7 +94,7 @@
 						<view class="itemContent">
 							<view class="itemTitle">
 								<span class="date">2019.03.14-2019.04.25 (43天)</span>
-								<span class="type">已预约</span>
+								<span class="type"></span>
 							</view>
 							<view class="shopRes">
 								<view class="shopLogo"></view>
@@ -109,7 +104,7 @@
 											更能打 8GB+128GB 网 通4G 双卡双待更能打 8GB+128GB 网
 											通4G 双卡双待
 										</view>
-										<view class="button" @click.stop="tologi">查看物流</view>
+										<!-- <view class="button" @click.stop="tologi">查看物流</view> -->
 									</view>
 									<view class="money">
 										<span class="moneyTitle">押金：</span>
@@ -130,233 +125,393 @@
 				</view>
 			</swiper-item>
 		</swiper>
+		<popup-layer ref="popup" :direction="direction">
+			<view class="zidingyi">
+				<view class="top">
+					<view class="title">
+						续租
+					</view>
+					<span class="moneyTitle">请选择续租天数，每个订单之可续租一次</span>
+					<view>
+						<span class="moneyTitle">
+							续租价格：</span>
+						<span class="moneyRes">￥1726.55</span>
+					</view>
+					<view class="tabWrap">
+						<view class="tabList tabactive">
+							1天
+						</view>
+						<view class="tabList">
+							7天
+						</view>
+						<view class="tabList">
+							15天
+						</view>
+						<view class="tabList">
+							30天
+						</view>
+						<view class="tabList">
+							90天
+						</view>
+						<view class="tabList">
+							180天
+						</view>
+					</view>
+					<text class="tip">*续租不可参与折扣*</text>
+				</view>
+				<view class="sumbit">
+					确定续租(￥23.50)
+				</view>
+			</view>
+		</popup-layer>
 	</view>
 </template>
 
 <script>
-export default {
-	data() {
-		return {
-			tabList: [
-				{
-					title: '已预约',
-					value: '12'
-				},
-				{
-					title: '使用中',
-					value: '12'
-				},
-				{
-					title: '已归还',
-					value: '12'
+	import popupLayer from '@/components/popup-layer/popup-layer.vue';
+	export default {
+		data() {
+			return {
+				direction: 'top',
+				ani: false,
+				tabList: [{
+						title: '已预约',
+						value: '12'
+					},
+					{
+						title: '使用中',
+						value: '12'
+					},
+					{
+						title: '已归还',
+						value: '12'
+					}
+				],
+				activeIndex: 0,
+				height: 0
+			};
+		},
+		created() {
+			uni.getSystemInfo({
+				success: res => {
+					this.height = res.windowHeight;
 				}
-			],
-			activeIndex: 0,
-			height: 0
-		};
-	},
-	created() {
-		uni.getSystemInfo({
-			success: res => {
-				this.height = res.windowHeight;
+			});
+		},
+		components: {
+			popupLayer
+		},
+		methods: {
+			tologi() {
+				uni.navigateTo({
+					url: '/pages/logistics/logistics',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			changeCurrent(e) {
+				console.log(e)
+				this.activeIndex = e.detail.current
+			},
+			toTop() {
+				this.$refs.popup.show() // 弹出
+			},
+			lookRes() {
+				uni.navigateTo({
+					url: '/pages/ordel/ordelRes/ordelRes',
+					success: res => {},
+					fail: () => {},
+					complete: () => {}
+				});
+			},
+			getIndex(index) {
+				this.activeIndex = index;
 			}
-		});
-	},
-	methods: {
-		tologi() {
-			uni.navigateTo({
-				url: '/pages/logistics/logistics',
-				success: res => {},
-				fail: () => {},
-				complete: () => {}
-			});
-		},
-		changeCurrent(e){
-			console.log(e)
-			this.activeIndex=e.detail.current
-		},
-		lookRes(){
-			uni.navigateTo({
-				url: '/pages/ordel/ordelRes/ordelRes',
-				success: res => {},
-				fail: () => {},
-				complete: () => {}
-			});
-		},
-		getIndex(index) {
-			this.activeIndex = index;
 		}
-	}
-};
+	};
 </script>
 
-<style lang="less" scoped>
-@import (reference) '../../common/public.less';
-page {
-	@relative();
-	@wh100();
-	.backcolor(RGBA(247, 247, 247, 1));
-}
-.content {
-	@wh100();
-}
-.headWrap {
-	position: fixed;
-	.setWh(100%, 97.22upx);
-	.backcolor(rgba(255, 255, 255, 1));
-	@flex();
-	.headList {
-		.setWh(33.33%, 100%);
-		font-size: 30.55upx;
-		color: rgba(102, 102, 102, 1);
+<style lang="less">
+	@import (reference) '../../common/public.less';
+
+	page {
 		@relative();
-		@center();
+		@wh100();
+		.backcolor(RGBA(247, 247, 247, 1));
+	}
+
+	.content {
+		@wh100();
+	}
+
+	.headWrap {
+		position: fixed;
+		.setWh(100%, 97.22upx);
+		.backcolor(rgba(255, 255, 255, 1));
 		@flex();
-		justify-content: center;
-	}
 
-	.active {
-		color: rgba(45, 171, 247, 1);
-		&::after {
-			width: 126.38upx;
-			height: 4.16upx;
-			content: '';
-			@blue();
-			@bottom();
-		}
-	}
-}
-
-.swiperWrap {
-	@wh100();
-	.boxCent;
-	padding-top: 97.22upx;
-}
-
-.swiper-item {
-	@wh100();
-	.boxCent();
-	padding: 0px 13.88upx;
-	.listItem {
-		.setWh(100%, auto);
-		.itemHead {
-			width: 100%;
-			height: 83.33upx;
-			.backcolor(RGBA(247, 247, 247, 1));
+		.headList {
+			.setWh(33.33%, 100%);
+			font-size: 30.55upx;
+			color: rgba(102, 102, 102, 1);
+			@relative();
+			@center();
 			@flex();
-			.ordelTitle {
-				height: 38.88upx;
-				@ordelColor();
-				.br(19.44upx);
-				padding: 0upx 25upx;
-				font-size: 25upx;
-				color: rgba(255, 255, 255, 1);
-				line-height: 38.88upx;
+			justify-content: center;
+		}
+
+		.active {
+			color: rgba(45, 171, 247, 1);
+
+			&::after {
+				width: 126.38upx;
+				height: 4.16upx;
+				content: '';
+				@blue();
+				@bottom();
 			}
 		}
-		.itemContent {
-			width: 100%;
-			height: auto;
-			@white();
-			.br(6.94upx);
-			.itemTitle {
+	}
+
+	.swiperWrap {
+		@wh100();
+		.boxCent;
+		padding-top: 97.22upx;
+	}
+
+	.button {
+		display: inline-block;
+		.boxCent;
+		padding: 0upx 20.83upx;
+		height: 59.72upx;
+		line-height: 59.72upx;
+		color: rgba(255, 255, 255, 1);
+		@center();
+		@blue();
+		.br(30.55upx);
+	}
+
+	.goOn {
+		.button;
+		background-color: rgba(120, 215, 206, 1);
+		margin-right: 19.44upx;
+	}
+
+	.swiper-item {
+		@wh100();
+		.boxCent();
+		padding: 0px 13.88upx;
+
+		.listItem {
+			.setWh(100%, auto);
+
+			.itemHead {
 				width: 100%;
 				height: 83.33upx;
-				.boxCent;
-				padding: 0px 27.77upx;
-				border-bottom: 1.38upx solid rgba(230, 230, 230, 1);
-				@flexXB();
-				.date {
-					font-size: 22upx;
-					color: rgba(102, 102, 102, 1);
-				}
-				.type {
-					font-size: 26.38upx;
-					color: rgba(49, 146, 255, 1);
+				.backcolor(RGBA(247, 247, 247, 1));
+				@flex();
+
+				.ordelTitle {
+					height: 38.88upx;
+					@ordelColor();
+					.br(19.44upx);
+					padding: 0upx 25upx;
+					font-size: 25upx;
+					color: rgba(255, 255, 255, 1);
+					line-height: 38.88upx;
 				}
 			}
-			.shopRes {
+
+			.itemContent {
 				width: 100%;
 				height: auto;
-				.boxCent;
-				padding: 25upx 15.27upx 27.77upx 15.27upx;
 				@white();
-				@flexXB();
-				border-bottom: 1.38upx solid rgba(230, 230, 230, 1);
-				.shopLogo {
-					width: 169.44upx;
-					height: 169.44upx;
-					border-radius: 6.94upx;
-					@blue();
+				.br(6.94upx);
+
+				.itemTitle {
+					width: 100%;
+					height: 83.33upx;
+					.boxCent;
+					padding: 0px 27.77upx;
+					border-bottom: 1.38upx solid rgba(230, 230, 230, 1);
+					@flexXB();
+
+					.date {
+						font-size: 22upx;
+						color: rgba(102, 102, 102, 1);
+					}
+
+					.type {
+						font-size: 26.38upx;
+						color: rgba(49, 146, 255, 1);
+					}
 				}
-				.shopDetail {
-					width: 486.11upx;
-					height: 169.44upx;
-					@flexYB();
-					.titleGroup {
-						width: 100%;
-						@flexXB();
-						.title {
-							width: 291.66upx;
-							height: 72.22upx;
-							font-size: 27.77upx;
-							font-weight: 400;
-							color: rgba(0, 0, 0, 1);
-							.twoLine(2);
-						}
-						.button {
-							width: 147.22upx;
-							height: 59.72upx;
-							line-height: 59.72upx;
-							color: rgba(255, 255, 255, 1);
-							@center();
-							@blue();
-							.br(30.55upx);
-						}
+
+				.shopRes {
+					width: 100%;
+					height: auto;
+					.boxCent;
+					padding: 25upx 15.27upx 27.77upx 15.27upx;
+					@white();
+					@flexXB();
+					border-bottom: 1.38upx solid rgba(230, 230, 230, 1);
+
+					.shopLogo {
+						width: 169.44upx;
+						height: 169.44upx;
+						border-radius: 6.94upx;
+						@blue();
 					}
-					.money {
-						width: 100%;
-						@flex();
-						.moneyTitle {
-							font-size: 27.77upx;
-							color: rgba(0, 0, 0, 1);
+
+					.shopDetail {
+						width: 486.11upx;
+						height: 169.44upx;
+						@flexYB();
+
+						.titleGroup {
+							width: 100%;
+							@flexXB();
+
+							.title {
+								width: 291.66upx;
+								height: 72.22upx;
+								font-size: 27.77upx;
+								font-weight: 400;
+								color: rgba(0, 0, 0, 1);
+								.twoLine(2);
+							}
+
+							.title100 {
+								width: 100%;
+							}
+
 						}
-						.moneyRes {
-							font-size: 26.38upx;
-							color: rgba(252, 51, 56, 1);
-						}
-					}
-					.priceGroup {
-						width: 100%;
-						@flexXB();
-						.date {
-							font-size: rgba(45, 171, 247, 1);
-							color: rgba(45, 171, 247, 1);
-							&:before {
-								content: '￥';
-								.price(rgba(45, 171, 247, 1));
+
+						.money {
+							width: 100%;
+							@flex();
+
+							.moneyTitle {
+								font-size: 27.77upx;
+								color: rgba(0, 0, 0, 1);
+							}
+
+							.moneyRes {
+								font-size: 26.38upx;
+								color: rgba(252, 51, 56, 1);
 							}
 						}
-						.number {
-							font-size: 30.55upx;
-							color: rgba(153, 153, 153, 1);
+
+						.priceGroup {
+							width: 100%;
+							@flexXB();
+
+							.date {
+								font-size: rgba(45, 171, 247, 1);
+								color: rgba(45, 171, 247, 1);
+
+								&:before {
+									content: '￥';
+									.price(rgba(45, 171, 247, 1));
+								}
+							}
+
+							.number {
+								font-size: 30.55upx;
+								color: rgba(153, 153, 153, 1);
+							}
 						}
 					}
 				}
-			}
-			.itempay {
-				.itemTitle;
-				@flexXR();
-				.price {
-					font-size: 26.38upx;
-					color: rgba(153, 153, 153, 1);
-				}
-				.money {
-					font-size: 26.38upx;
-					color: rgba(252, 51, 56, 1);
+
+				.itempay {
+					.itemTitle;
+					@flexXR();
+
+					.price {
+						font-size: 26.38upx;
+						color: rgba(153, 153, 153, 1);
+					}
+
+					.money {
+						font-size: 26.38upx;
+						color: rgba(252, 51, 56, 1);
+					}
 				}
 			}
 		}
 	}
-}
+
+	.zidingyi {
+		width: 100%;
+		height: auto;
+
+		.top {
+			width: 100%;
+			height: auto;
+			.boxCent;
+			border-bottom: 16upx solid rgba(245, 245, 245, 1);
+			padding: 36.11upx;
+			@white();
+
+			.title {
+				width: 100%;
+				height: 60px;
+				@center();
+				line-height: 60px;
+				font-size: 33.33upx;
+				font-weight: bolder;
+				color: rgba(0, 0, 0, 1);
+			}
+
+			.moneyTitle {
+				font-size: 27.77upx;
+				color: rgba(0, 0, 0, 1);
+			}
+
+			.moneyRes {
+				font-size: 26.38upx;
+				color: rgba(45, 171, 247, 1);
+			}
+
+			.tabWrap {
+				width: 100%;
+				height: auto;
+				overflow: hidden;
+				margin-top: 30.55upx;
+			}
+
+			.tabList {
+				width: 150upx;
+				height: 81.94upx;
+				background: rgba(210, 210, 210, 0.75);
+				border-radius: 6.94upx;
+				float: left;
+				color: rgba(255,255,255,1);
+				margin-right: 19.44upx;
+				margin-bottom: 20.83upx;
+				text-align: center;
+				line-height: 81.94upx;
+			}
+			.tabactive{
+				background-color: rgba(45, 171, 247, 1);
+			}
+			.tip {
+				color: rgba(255, 0, 0, 1);
+				font-size: 25upx;
+			}
+		}
+
+		.sumbit {
+			width: 100%;
+			height: 83.33upx;
+			background: rgba(45, 171, 247, 1);
+			border-radius: 4.16upx;
+			text-align: center;
+			line-height: 83.33upx;
+			font-size: 33.33upx;
+			color: rgba(255, 255, 255, 1);
+		}
+	}
 </style>

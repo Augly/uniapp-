@@ -28,7 +28,7 @@
 		<view class="zeroExperience">
 			<view class="zero-title">
 				<view class="left">
-					<image src="../../static/活动-2@2x.png" mode=""></image>
+					<image src="../../static/43.png" mode=""></image>
 					<span>0元体验</span>
 				</view>
 				<view class="right">
@@ -60,7 +60,7 @@
 			</view>
 			<view class="right">
 				<span class="title">邀请</span>
-				<image src="../../static/返回%20拷贝%203@2x.png" mode="" class="img"></image>
+				<image src="../../static/53.png" mode="" class="img"></image>
 			</view>
 		</view>
 		<!--listOne-->
@@ -68,7 +68,7 @@
 			<view class="listTitle">
 				<span class="title">酷玩娱乐</span>
 				<span class="more">查看更多</span>
-				<image src="../../static/返回%20拷贝%203@2x.png" mode=""></image>
+				<image src="../../static/53.png" mode=""></image>
 			</view>
 			<view class="listContent">
 				<scroll-view class="scrollWrap" scroll-x="true">
@@ -107,7 +107,7 @@
 			<view class="listTitle">
 				<span class="title">酷玩娱乐</span>
 				<span class="more">查看更多</span>
-				<image src="../../static/返回%20拷贝%203@2x.png" mode=""></image>
+				<image src="../../static/53.png" mode=""></image>
 			</view>
 			<view class="listContent">
 				<scroll-view class="scrollWrap" scroll-x="true">
@@ -146,7 +146,7 @@
 			<view class="listTitle">
 				<span class="title">热门产品</span>
 				<span class="more">查看更多</span>
-				<image src="../../static/返回%20拷贝%203@2x.png" mode=""></image>
+				<image src="../../static/53.png" mode=""></image>
 			</view>
 			<view class="listContent">
 				<view class="listWrap">
