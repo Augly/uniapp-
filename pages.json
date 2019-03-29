@@ -1,6 +1,24 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/ordel/preview_order/preview_order",
+			"style": {
+				"navigationBarTitleText": "预览订单"
+			}
+		},
+		{
+			"path": "pages/personl/my_income/my_income",
+			"style": {
+				"navigationBarTitleText": "我的收益"
+			}
+		},
+		{
+			"path": "pages/adder_manger/adder_manger",
+			"style": {
+				"navigationBarTitleText": "新增/编辑地址"
+			}
+		},
+		{
 			"path": "pages/personl/myadder/myadder",
 			"style": {
 				"navigationBarTitleText": "我的地址"
@@ -49,8 +67,6 @@
 			"path": "pages/ordel/ordelRes/ordelRes",
 			"style": {}
 		}
-
-
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

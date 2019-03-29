@@ -1,7 +1,0 @@
-<import src="/components/popup-layer/popup-layer.vue.wxml" />
-<import src="/components/uni-steps/uni-steps.vue.wxml" />
-<import src="/common/slots.wxml" />
-<import src="/components/uni-icon/uni-icon.vue.wxml" />
-
-<template name="5c88df4c-default-5c88df4c-3"><view class="_view 5c88df4c zidingyi"><view class="_view 5c88df4c top"><view class="_view 5c88df4c title">续租</view><label class="_span 5c88df4c moneyTitle">请选择续租天数，每个订单之可续租一次</label><view class="_view 5c88df4c"><label class="_span 5c88df4c moneyTitle">续租价格：</label><label class="_span 5c88df4c moneyRes">￥1726.55</label></view><view class="_view 5c88df4c tabWrap"><view class="_view 5c88df4c tabList"></view><view class="_view 5c88df4c tabList"></view><view class="_view 5c88df4c tabList"></view><view class="_view 5c88df4c tabList"></view><view class="_view 5c88df4c tabList"></view><view class="_view 5c88df4c tabList"></view></view><text class="_text 5c88df4c tip">*续租不可参与折扣*</text></view><view class="_view 5c88df4c sumbit"></view></view></template>
-
