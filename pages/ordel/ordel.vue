@@ -159,7 +159,7 @@
 					</view>
 					<text class="tip">*续租不可参与折扣*</text>
 				</view>
-				<view class="sumbit">
+				<view class="sumbit" @click="sure">
 					确定续租(￥23.50)
 				</view>
 			</view>
@@ -216,6 +216,9 @@
 			},
 			toTop() {
 				this.$refs.popup.show() // 弹出
+			},
+			sure(){
+				this.$refs.popup.close() // 弹出
 			},
 			lookRes() {
 				uni.navigateTo({

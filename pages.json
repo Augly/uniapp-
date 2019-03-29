@@ -1,6 +1,18 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/personl/myadder/myadder",
+			"style": {
+				"navigationBarTitleText": "我的地址"
+			}
+		},
+		{
+			"path": "pages/ordel/txsq/txsq",
+			"style": {
+				"navigationBarTitleText": "提现申请"
+			}
+		},
+		{
 			"path": "pages/index/index",
 			"style": {
 				"backgroundColor": "#FFFFFF"
@@ -37,6 +49,7 @@
 			"path": "pages/ordel/ordelRes/ordelRes",
 			"style": {}
 		}
+
 
 	],
 	"globalStyle": {
