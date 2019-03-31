@@ -5,9 +5,7 @@
 				<view class="left">
 					<text class="left_title">累计获得收益(元)</text>
 					<view class="left_center">
-
 						5416.0
-
 					</view>
 					<text class="left_bottom">您已邀请了3人，成功注册1人</text>
 				</view>
@@ -21,11 +19,8 @@
 				</view>
 			</view>
 			<view class="headBottom">
-				<view class="tabList after">
-					收入
-				</view>
-				<view class="tabList before tabActive">
-					支出
+				<view class="tabList after" :class="tabIndex==index?'tabActive':''" v-for="(item,index) in tabList" :key="'tab'+index" @click.stop="selectChange(index)">
+					{{item.label}}
 				</view>
 			</view>
 		</view>
@@ -50,8 +45,29 @@
 	export default {
 		data() {
 			return {
-
+				tabIndex:0,
+				tabList:[{
+					label:'收入',
+					value:0
+				},{
+					label:'支出',
+					value:1
+				}]
 			};
+		},
+		methods:{
+			selectChange(index){
+				
+				uni.showLoading({
+					title:'正在加载中...',
+					success: () => {
+						setTimeout(()=>{
+							this.tabIndex=index
+							uni.hideLoading()
+						},1000)
+					}
+				})
+			}
 		}
 	}
 </script>

@@ -1,12 +1,55 @@
 <template>
 	<view class="content">
-		<view class="headWrap">
-			<view class="headList" :class="activeIndex == index ? 'active' : ''" v-for="(item, index) in tabList" :key="index"
-			 @click="getIndex(index)">
-				{{ item.title }}({{ item.value }})
-			</view>
+		<view class="">
+			<scroll-view scroll-x class="headWrap" :scroll-into-view="'s'+activeIndex" scroll-with-animation='true'>
+				<view class="headList" :id="'s'+index" :class="activeIndex == index ? 'active' : ''" v-for="(item, index) in tabList" :key="index"
+				 @click="getIndex(index)">
+					{{ item.title }}({{ item.value }})
+				</view>
+			</scroll-view>
 		</view>
+			
+			
 		<swiper :duration="300" class="swiperWrap" :current="activeIndex" @change="changeCurrent">
+			<swiper-item>
+				<view class="swiper-item">
+					<view class="listItem" @click="lookRes">
+						<view class="itemHead">
+							<span class="ordelTitle">订单编号：20190324122159000</span>
+						</view>
+						<view class="itemContent">
+							<view class="itemTitle">
+								<span class="date">2019.03.14-2019.04.25 (43天)</span>
+								<span class="type">使用中</span>
+							</view>
+							<view class="shopRes">
+								<image src="http://minpig.zzvlm.com/banner2.png" class="shopLogo"></image>
+								<view class="shopDetail">
+									<view class="titleGroup">
+										<view class="title title100">
+											更能打 8GB+128GB 网 通4G 双卡双待更能打 8GB+128GB 网
+											通4G 双卡双待
+										</view>
+										<!-- <view class="button" @click.stop="tologi">查看物流</view> -->
+									</view>
+									<view class="money">
+										<span class="moneyTitle">押金：</span>
+										<span class="moneyRes">￥1726.55</span>
+									</view>
+									<view class="priceGroup">
+										<span class="date">28.2</span>
+										<span class="number">x1</span>
+									</view>
+								</view>
+							</view>
+							<view class="itempay">
+								<view class="cendel_ordel">取消订单</view>
+								<view class="button">去支付</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</swiper-item>
 			<swiper-item>
 				<view class="swiper-item">
 					<view class="listItem" @click="lookRes">
@@ -19,7 +62,7 @@
 								<span class="type">已预约</span>
 							</view>
 							<view class="shopRes">
-								<view class="shopLogo"></view>
+								<image src="http://minpig.zzvlm.com/banner2.png" class="shopLogo"></image>
 								<view class="shopDetail">
 									<view class="titleGroup">
 										<view class="title">
@@ -58,7 +101,7 @@
 								<span class="type">使用中</span>
 							</view>
 							<view class="shopRes">
-								<view class="shopLogo"></view>
+								<image src="http://minpig.zzvlm.com/banner2.png" class="shopLogo"></image>
 								<view class="shopDetail">
 									<view class="titleGroup">
 										<view class="title title100">
@@ -94,13 +137,53 @@
 						<view class="itemContent">
 							<view class="itemTitle">
 								<span class="date">2019.03.14-2019.04.25 (43天)</span>
-								<span class="type"></span>
+								<span class="type">已归还</span>
 							</view>
 							<view class="shopRes">
-								<view class="shopLogo"></view>
+								<image src="http://minpig.zzvlm.com/banner2.png" class="shopLogo"></image>
 								<view class="shopDetail">
 									<view class="titleGroup">
-										<view class="title">
+										<view class="title title100">
+											更能打 8GB+128GB 网 通4G 双卡双待更能打 8GB+128GB 网
+											通4G 双卡双待
+										</view>
+										<!-- <view class="button" @click.stop="tologi">查看物流</view> -->
+									</view>
+									<view class="money">
+										<span class="moneyTitle">押金：</span>
+										<span class="moneyRes">￥1726.55</span>
+									</view>
+									<view class="priceGroup">
+										<span class="date">28.2</span>
+										<span class="number">x1</span>
+									</view>
+								</view>
+							</view>
+							<view class="itempay">
+								<span class="price">已支付：</span>
+								<span class="money">￥1726.55</span>
+							</view>
+						</view>
+					</view>
+				</view>
+			</swiper-item>
+			<swiper-item>
+				<view class="swiper-item">
+					<view class="listItem">
+						<view class="itemHead">
+							<span class="ordelTitle">订单编号：20190324122159000</span>
+						</view>
+						<view class="itemContent">
+							<view class="itemTitle">
+								<span class="date">2019.03.14-2019.04.25 (43天)</span>
+								<span class="type">已取消</span>
+							</view>
+							<view class="shopRes">
+								<image src="http://minpig.zzvlm.com/banner2.png" class="shopLogo"></image>
+								
+								<view class="shopDetail">
+									<view class="titleGroup">
+										<view class="title title100">
 											更能打 8GB+128GB 网 通4G 双卡双待更能打 8GB+128GB 网
 											通4G 双卡双待
 										</view>
@@ -138,24 +221,11 @@
 						<span class="moneyRes">￥1726.55</span>
 					</view>
 					<view class="tabWrap">
-						<view class="tabList tabactive">
-							1天
+						
+						<view class="tabList" :class="popupIndex==index?'tabactive':''" v-for="(item,index) in popup" :key="'popup'+index" @click.stop="selectDate(index)">
+							{{item.label}}
 						</view>
-						<view class="tabList">
-							7天
-						</view>
-						<view class="tabList">
-							15天
-						</view>
-						<view class="tabList">
-							30天
-						</view>
-						<view class="tabList">
-							90天
-						</view>
-						<view class="tabList">
-							180天
-						</view>
+						
 					</view>
 					<text class="tip">*续租不可参与折扣*</text>
 				</view>
@@ -175,6 +245,10 @@
 				direction: 'top',
 				ani: false,
 				tabList: [{
+						title: '待付款',
+						value: '12'
+					},
+					{
 						title: '已预约',
 						value: '12'
 					},
@@ -185,10 +259,34 @@
 					{
 						title: '已归还',
 						value: '12'
+					},
+					{
+						title: '已取消',
+						value: '12'
 					}
 				],
 				activeIndex: 0,
-				height: 0
+				height: 0,
+				popupIndex:0,
+				popup:[{
+					label:'1天',
+					vaue:1
+				},{
+					label:'7天',
+					vaue:7
+				},{
+					label:'15天',
+					vaue:15
+				},{
+					label:'30天',
+					vaue:30
+				},{
+					label:'90天',
+					vaue:90
+				},{
+					label:'180天',
+					vaue:180
+				}  ]
 			};
 		},
 		created() {
@@ -202,6 +300,7 @@
 			popupLayer
 		},
 		methods: {
+			//查看物流
 			tologi() {
 				uni.navigateTo({
 					url: '/pages/logistics/logistics',
@@ -210,15 +309,28 @@
 					complete: () => {}
 				});
 			},
+			//选择续租时间
+			selectDate(index){
+				this.popupIndex=index
+			},
+			//选择订单状态
 			changeCurrent(e) {
-				console.log(e)
 				this.activeIndex = e.detail.current
+				uni.showLoading({
+					title:'正在加载中...',
+					success: () => {
+						setTimeout(()=>{
+							uni.hideLoading()
+						},1000)
+					}
+				})
 			},
 			toTop() {
-				this.$refs.popup.show() // 弹出
+				this.$refs.popup.show()
 			},
+			//确定续租
 			sure(){
-				this.$refs.popup.close() // 弹出
+				this.$refs.popup.close()
 			},
 			lookRes() {
 				uni.navigateTo({
@@ -252,16 +364,19 @@
 		position: fixed;
 		.setWh(100%, 97.22upx);
 		.backcolor(rgba(255, 255, 255, 1));
-		@flex();
-
+		white-space: nowrap;
+		// flex-wrap: nowrap;
 		.headList {
-			.setWh(33.33%, 100%);
+			.setWh(250upx,  97.22upx);
 			font-size: 30.55upx;
 			color: rgba(102, 102, 102, 1);
 			@relative();
 			@center();
-			@flex();
-			justify-content: center;
+			line-height: 97.22upx;
+			display: inline-block;
+			white-space: nowrap;
+			// @flex();
+			// justify-content: center;
 		}
 
 		.active {
@@ -300,7 +415,11 @@
 		background-color: rgba(120, 215, 206, 1);
 		margin-right: 19.44upx;
 	}
-
+	.cendel_ordel{
+		.button;
+		background-color: rgba(210, 210, 210, 1);
+		margin-right: 19.44upx;
+	}
 	.swiper-item {
 		@wh100();
 		.boxCent();
@@ -364,7 +483,7 @@
 						width: 169.44upx;
 						height: 169.44upx;
 						border-radius: 6.94upx;
-						@blue();
+						// @blue();
 					}
 
 					.shopDetail {

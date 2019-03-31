@@ -34,7 +34,7 @@ page {
   font-size: 30.55rpx;
   color: #333333;
 }
-.list ._input {
+.list input {
   width: 527.77rpx;
   height: 100%;
   font-size: 30.55rpx;

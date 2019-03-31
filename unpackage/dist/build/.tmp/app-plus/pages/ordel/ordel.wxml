@@ -1,2 +1,2 @@
 <import src="./ordel.vue.wxml" />
-    <template is="5c88df4c" data="{{ ...$root['0'], $root }}"/>
+    <template is="6e748a04" data="{{ ...$root['0'], $root }}"/>

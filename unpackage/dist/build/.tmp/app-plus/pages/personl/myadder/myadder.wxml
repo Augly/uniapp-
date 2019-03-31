@@ -1,0 +1,2 @@
+<import src="./myadder.vue.wxml" />
+    <template is="315f13c0" data="{{ ...$root['0'], $root }}"/>

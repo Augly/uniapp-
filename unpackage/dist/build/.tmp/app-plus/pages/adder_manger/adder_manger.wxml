@@ -1,0 +1,2 @@
+<import src="./adder_manger.vue.wxml" />
+    <template is="46867692" data="{{ ...$root['0'], $root }}"/>

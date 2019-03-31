@@ -179,7 +179,7 @@ page {
   font-size: 30.55rpx;
   color: #999999;
 }
-.otherGroup .list ._input {
+.otherGroup .list input {
   font-size: 27.77rpx;
   color: #000000;
   width: 388.88rpx;

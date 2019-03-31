@@ -1,6 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/ordel/preview_order/preview_order",
+    "pages/personl/my_income/my_income",
+    "pages/adder_manger/adder_manger",
+    "pages/personl/myadder/myadder",
+    "pages/ordel/txsq/txsq",
     "pages/personl/authentication/authentication",
     "pages/logistics/logistics",
     "pages/class/class",
@@ -58,5 +63,6 @@
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
-  "appname": "小蓝猪项目"
+  "appname": "小蓝猪项目",
+  "compilerVersion": "1.8.1"
 }

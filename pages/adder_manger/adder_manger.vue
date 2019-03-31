@@ -25,7 +25,7 @@
 			</view>
 		</view>
 		<textarea value="" placeholder="请输入详细地址" class="textContent"/>
-		<view class="sumbit">
+		<view class="sumbit" @click="sure">
 			保存
 		</view>
 		<mpvue-city-picker :themeColor="themeColor" ref="mpvueCityPicker" :pickerValueDefault="cityPickerValueDefault"
@@ -54,7 +54,32 @@
 		created() {
 			console.log(cityData)
 		},
+		onLoad(options) {
+			options.id==undefined?'新增地址':'编辑地址'
+		},
 		methods: {
+			showwToast(){
+				uni.showToast({
+					title:'保存成功!',
+					mask:true,
+					success: () => {
+						
+					},
+					duration:500
+				})
+			},
+			sure(){
+				uni.showLoading({
+					title:'正在保存...',
+					mask:true,
+					success: () => {
+						setTimeout(()=>{
+							uni.hideLoading()
+							this.showwToast()
+						},1000)
+					}
+				})
+			},
 			getName() {
 				console.log(this.name)
 			},
@@ -81,12 +106,13 @@
 			}
 		},
 		onUnload() {
-			if (this.$refs.mpvuePicker.showPicker) {
-				this.$refs.mpvuePicker.pickerCancel()
-			}
-			if (this.$refs.mpvueCityPicker.showPicker) {
-				this.$refs.mpvueCityPicker.pickerCancel()
-			}
+// 			console.log(this.$refs.mpvuePicker)
+// 			if (this.$refs.mpvuePicker.showPicker) {
+// 				this.$refs.mpvuePicker.pickerCancel()
+// 			}
+// 			if (this.$refs.mpvueCityPicker.showPicker) {
+// 				this.$refs.mpvueCityPicker.pickerCancel()
+// 			}
 		}
 	}
 </script>

@@ -10,13 +10,13 @@
 					placeholder="可转出到卡21637.28元"
 					placeholder-style="font-size: 33.33upx"
 				/>
-				<text class="all">全部</text>
+				<text class="all" @click="needAll">全部</text>
 			</view>
 			<view class="tipGroup">
 				<text class="tipTitle">可用余额:</text>
 				<text class="tipMintitle">￥23.00</text>
 			</view>
-			<view class="submitGroup">确认提现</view>
+			<view class="submitGroup" @click="tx">确认提现</view>
 			<!-- 提现规则 -->
 			<view class="ruleGroup">
 				<view class="ruleHead"><text class="ruleTitle">提现规则</text></view>
@@ -31,6 +31,17 @@
 export default {
 	data() {
 		return {};
+	},
+	
+	methods:{
+		//全部提现
+		needAll(){
+			
+		},
+		//确认提现
+		tx(){
+			
+		}
 	}
 };
 </script>

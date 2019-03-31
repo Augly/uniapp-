@@ -1,58 +1,33 @@
 <template>
 	<view>
 		<view class="adderWrap">
-			<view class="addlist">
+			<view class="addlist" v-for="(item,index) in adderrList" :key='index'>
 				<view class="resGroup">
 					<view class="nameGroup">
-						<text class="name">刘晶晶</text>
-						<text class="tel">13943456778</text>
+						<text class="name">{{item.name}}</text>
+						<text class="tel">{{item.tel}}</text>
 					</view>
 					<view class="adderRes">
-						北京市海淀区天秀路天秀花园街道海淀区天秀路天秀花园街道10号
+						{{item.adder}}{{item.adderRes}}
 					</view>
 				</view>
 				<view class="scopeGroup">
-					<view class="selectGroup">
-						<text class="iconfont icon-unxuanze"></text>
+					<view class="selectGroup" @click.stop="select(item.id,item.check)">
+						<text class="iconfont" :class="item.check?'icon-xuanze':'icon-unxuanze'"></text>
 						默认地址
 					</view>
-					<view class="editGroup">
+					<view class="editGroup" @click.stop="edit(item.id,index)">
 						<text class="iconfont icon-bianji"></text>
 						编辑
 					</view>
-					<view class="delGroup">
-						<text class="iconfont icon-shanchu"></text>
-						删除
-					</view>
-				</view>
-			</view>
-			<view class="addlist">
-				<view class="resGroup">
-					<view class="nameGroup">
-						<text class="name">刘晶晶</text>
-						<text class="tel">13943456778</text>
-					</view>
-					<view class="adderRes">
-						北京市海淀区天秀路天秀花园街道海淀区天秀路天秀花园街道10号
-					</view>
-				</view>
-				<view class="scopeGroup">
-					<view class="selectGroup">
-						<text class="iconfont icon-xuanze"></text>
-						默认地址
-					</view>
-					<view class="editGroup">
-						<text class="iconfont icon-bianji"></text>
-						编辑
-					</view>
-					<view class="delGroup">
-						<text class="iconfont icon-shanchu"></text>
+					<view class="delGroup" @click.stop="del(item.id,index)">
+						<text class="iconfont icon-shanchu" ></text>
 						删除
 					</view>
 				</view>
 			</view>
 		</view>
-		<view class="bottonGroup">
+		<view class="bottonGroup" @click="addAdder">
 			新增地址
 		</view>
 	</view>
@@ -61,7 +36,70 @@
 <script>
 export default {
 	data() {
-		return {};
+		return {
+			adderrList:[{
+				id:1,
+				check:true,
+				name:'刘晶晶',
+				tel:'13943456778',
+				adder:'北京市北京市海淀区',
+				adderRes:'天秀路天秀花园街道海淀区天秀路天秀花园街道10号',
+			},
+			{
+				id:2,
+				check:false,
+				name:'刘晶晶',
+				tel:'13943456778',
+				adder:'北京市北京市海淀区',
+				adderRes:'天秀路天秀花园街道海淀区天秀路天秀花园街道10号',
+			}]
+		};
+	},
+	methods:{
+		//切换默认地址
+		select(id,index){
+			this.adderrList.forEach((item,index)=>{
+				item.check=false;
+				item.id==id?item.check=!item.check:''
+			})
+		},
+		//删除地址
+		del(id,index){
+			uni.showLoading({
+				title:'正在删除...',
+				mask:true,
+				success: () => {
+					setTimeout(()=>{
+						uni.hideLoading()
+						uni.showToast({
+							title:'删除成功',
+							mask:true,
+							duration:1000,
+							success: () => {
+								this.adderrList.splice(index,1)
+							}
+						})
+					},1000)
+				}
+			})
+		},
+		//编辑地址
+		edit(id,index){
+			uni.navigateTo({
+				url: "/pages/adder_manger/adder_manger?id="+id,
+				success: res => {},
+				fail: () => {},
+				complete: () => {}
+			})
+		},
+		addAdder(){
+			uni.navigateTo({
+				url: "/pages/adder_manger/adder_manger",
+				success: res => {},
+				fail: () => {},
+				complete: () => {}
+			})
+		}
 	}
 };
 </script>

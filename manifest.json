@@ -59,5 +59,11 @@
             "urlCheck" : true
         },
         "permission" : {}
+    },
+    "h5" : {
+        "router" : {
+            "base" : ""
+        },
+        "domain" : "minpig.zzvlm.com"
     }
 }
