@@ -28,17 +28,64 @@
 				"navigationBarTitleText": "订单列表"
 			}
 		}, {
-			"path": "pages/list/list",
-			"style": {}
-		}, {
 			"path": "pages/personl/personl",
 			"style": {}
 		}, {
 			"path": "pages/ordel/ordelRes/ordelRes",
 			"style": {}
+		}, {
+			"path": "pages/my_favorite/my_favorite",
+			"style": {
+				"navigationBarTitleText": "我的收藏"
+			}
 		}
-
-	],
+	    ,{
+            "path" : "pages/login/login",
+            "style" : {
+				"navigationBarTitleText": "登录"
+			}
+        }
+        ,{
+            "path" : "pages/my_privilege/my_privilege",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/merch_bil/merch_bil",
+            "style": {
+            	"navigationBarTitleText": "商品清单"
+            }
+        }
+        ,{
+            "path" : "pages/order_status/order_status",
+            "style" : {
+				"navigationBarTitleText": "订单状态"
+			}
+        }
+        ,{
+            "path" : "pages/search/search",
+            "style" : {
+				"navigationBarTitleText": "搜索商品"
+			}
+        }
+        ,{
+            "path" : "pages/my_footprint/my_footprint",
+            "style" : {
+            	"navigationBarTitleText": "足迹"
+            }
+        }
+        ,{
+            "path" : "pages/my_credit/my_credit",
+            "style" : {
+				"navigationBarTitleText": "信用额度"
+			}
+        }
+        ,{
+            "path" : "pages/class/commodity_detail/commodity_detail",
+            "style" : {
+				"navigationBarTitleText": "商品详情"
+			}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "小蓝猪",
@@ -68,7 +115,7 @@
 				"selectedIconPath": "static/3-2.png"
 			},
 			{
-				"pagePath": "pages/list/list",
+				"pagePath": "pages/merch_bil/merch_bil",
 				"text": "清单",
 				"iconPath": "static/4-1.png",
 				"selectedIconPath": "static/4-2.png"
