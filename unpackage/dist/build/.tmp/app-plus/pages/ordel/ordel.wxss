@@ -406,8 +406,14 @@ page {
   background: rgba(210, 210, 210, 0.75);
   border-radius: 6.94rpx;
   float: left;
+  color: #ffffff;
   margin-right: 19.44rpx;
   margin-bottom: 20.83rpx;
+  text-align: center;
+  line-height: 81.94rpx;
+}
+.zidingyi .top .tabactive {
+  background-color: #2dabf7;
 }
 .zidingyi .top .tip {
   color: #ff0000;
@@ -418,5 +424,9 @@ page {
   height: 83.33rpx;
   background: #2dabf7;
   border-radius: 4.16rpx;
+  text-align: center;
+  line-height: 83.33rpx;
+  font-size: 33.33rpx;
+  color: #ffffff;
 }
 

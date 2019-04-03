@@ -7,6 +7,36 @@
 			}
 		},
 		{
+			"path": "pages/ordel/txsq/txsq",
+			"style": {
+				"navigationBarTitleText": "提现申请"
+			}
+		},
+		{
+			"path": "pages/personl/myadder/myadder",
+			"style": {
+				"navigationBarTitleText": "我的地址"
+			}
+		},
+		{
+			"path": "pages/adder_manger/adder_manger",
+			"style": {
+				"navigationBarTitleText": "新增/编辑地址"
+			}
+		},
+		{
+			"path": "pages/personl/my_income/my_income",
+			"style": {
+				"navigationBarTitleText": "我的收益"
+			}
+		},
+		{
+			"path": "pages/ordel/preview_order/preview_order",
+			"style": {
+				"navigationBarTitleText": "预览订单"
+			}
+		},
+		{
 			"path": "pages/personl/authentication/authentication",
 			"style": {
 				"navigationBarTitleText": "实名认证"

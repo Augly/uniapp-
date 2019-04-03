@@ -1,0 +1,95 @@
+page.data-v-406dec23 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+}
+.adderWrap.data-v-406dec23 {
+  border-bottom: 22.22rpx solid #f5f5f5;
+}
+.addlist.data-v-406dec23 {
+  width: 100%;
+  height: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0rpx 23.61rpx;
+  border-top: 22.22rpx solid #f5f5f5;
+}
+.addlist .resGroup.data-v-406dec23 {
+  width: 100%;
+  border-bottom: 1.38rpx solid #e9e9e9;
+}
+.addlist .resGroup .nameGroup.data-v-406dec23 {
+  width: 100%;
+  height: 80.55rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 26.38rpx;
+  color: #333333;
+}
+.addlist .resGroup .nameGroup .tel.data-v-406dec23 {
+  margin-left: 27.77rpx;
+}
+.addlist .resGroup .adderRes.data-v-406dec23 {
+  margin: 0rpx 0rpx 33.33rpx 0rpx;
+  font-size: 22.22rpx;
+  color: #666666;
+}
+.addlist .scopeGroup.data-v-406dec23 {
+  width: 100%;
+  height: 75rpx;
+  font-size: 25rpx;
+  color: #999999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.addlist .scopeGroup .iconfont.data-v-406dec23 {
+  margin-right: 13.88rpx;
+}
+.addlist .scopeGroup .selectGroup.data-v-406dec23 {
+  margin-right: auto;
+}
+.addlist .scopeGroup .selectGroup .icon-xuanze.data-v-406dec23 {
+  color: #2dabf7;
+}
+.addlist .scopeGroup .selectGroup .iconfont.data-v-406dec23 {
+  font-size: 26.38rpx;
+}
+.addlist .scopeGroup .editGroup.data-v-406dec23 {
+  margin-right: 47.22rpx;
+}
+.addlist .scopeGroup .editGroup .iconfont.data-v-406dec23 {
+  font-size: 34.72rpx;
+}
+.addlist .scopeGroup .delGroup .iconfont.data-v-406dec23 {
+  font-size: 34.72rpx;
+}
+.bottonGroup.data-v-406dec23 {
+  width: 583.33rpx;
+  height: 83.33rpx;
+  background: #2dabf7;
+  border-radius: 4.16rpx;
+  font-size: 33.33rpx;
+  text-align: center;
+  line-height: 83.33rpx;
+  color: #ffffff;
+  margin: 0 auto;
+  margin-top: 55.55rpx;
+}
+

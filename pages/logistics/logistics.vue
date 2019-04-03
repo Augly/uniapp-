@@ -13,7 +13,7 @@
 		</view>
 		<view class="example">
 			<uni-steps :data="list"
-			 direction="column" :active="2" :active-color="activeColor">
+			 direction="column" :active="2" :active-color="activeColor" v-if="list">
 			</uni-steps>
 		</view>
 
@@ -29,7 +29,13 @@
 		data() {
 			return {
 				activeColor: 'rgba(45, 171, 247, 1)',
-				list:[{
+				list:null
+			};
+		},
+		methods:{
+			//假数据
+			initData(){
+				return [{
 					title:'运输到达【北京】 北京市南山区科技园南区R2-B三楼',
 					desc:'2018-07-14 08:15:42'
 				},{
@@ -42,8 +48,20 @@
 					title:'运输到达【北京】 北京市南山区科技园南区R2-B三楼',
 					desc:'2018-07-14 08:15:42'
 				},]
-			};
+			}
+		},
+		onLoad() {
+			uni.showLoading({
+				title:'正在加载中...',
+				success: () => {
+					setTimeout(()=>{
+						uni.hideLoading()
+						this.list=this.initData()
+					},1000)
+				}
+			})
 		}
+		
 	}
 </script>
 
