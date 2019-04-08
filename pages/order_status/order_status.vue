@@ -1,6 +1,6 @@
 <template>
 	<view class="order_status">
-		<view class="order_status_item" v-for="(item, index) in 10">
+		<view class="order_status_item">
 			<view class="order_status_item_text">
 				<view class="order_status_item_text_status">待付款</view>
 				<view class="order_status_item_text_status_info">您的产品已预订，请在60分钟之内付款</view>

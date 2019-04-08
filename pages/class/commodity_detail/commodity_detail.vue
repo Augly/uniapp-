@@ -1,7 +1,8 @@
 <template>
 	<view class="commodity_detail">
 		<view class="commodity_detail_banner">
-			<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
+			<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :indicator-color="indicatorColor"
+			 :indicator-active-color="activeColor" :circular="circular">
 				<swiper-item>
 					<view class="swiper-item">
 						<image src="https://img.zcool.cn/community/01f5da58bf9f91a801219c77d21d39.jpg@1280w_1l_2o_100sh.jpg" mode="aspectFill"></image>
@@ -54,7 +55,7 @@
 		</view>
 		<view class="my_credit_service">
 			<view class="my_credit_service_item">
-				<view class="my_credit_service_title">
+				<view class="my_credit_service_title" @click.stop="gotoVip()">
 					<view class="title">会员服务</view>
 					<view class="free_play">开通会员免费玩</view>
 					<view class="open_icon">
@@ -67,9 +68,9 @@
 			<view class="merch_bil_date_wrap">
 				<view class="merch_bil_date_title">请选择租赁日期(3天起)</view>
 				<view class="merch_bil_date_check">
-					<view class="merch_bil_date_start">选择起租日期</view>
+					<view class="merch_bil_date_start" @click.stop="checkStartDate()">{{chooseStartDate}}</view>
 					<view class="merch_bil_date_block"></view>
-					<view class="merch_bil_date_end">选择到期日期</view>
+					<view class="merch_bil_date_end" @click.stop="checkEndDate()">{{chooseEndDate}}</view>
 				</view>
 			</view>
 			<view class="commodity_detail_date_count">
@@ -111,42 +112,42 @@
 						<view>挑选产品</view>
 					</view>
 					<view class="commodity_detail_timeline_item2">
-						<view class="commodity_detail_timeline_tips">确定租期，收货地址</view>
+						<view class="commodity_detail_timeline_tips" style="background-image: url('../../../static/icon72.png'); background-size: cover;">确定租期，收货地址</view>
 					</view>
 					<view class="commodity_detail_timeline_item1">
 						<view class="timeline_icon">2</view>
 						<view>预定成功</view>
 					</view>
 					<view class="commodity_detail_timeline_item2">
-						<view class="commodity_detail_timeline_tips">离起租日期不足2日</view>
+						<view class="commodity_detail_timeline_tips" style="background-image: url('../../../static/icon72.png'); background-size: cover;">离起租日期不足2日</view>
 					</view>
 					<view class="commodity_detail_timeline_item1">
 						<view class="timeline_icon">3</view>
 						<view>库房发货</view>
 					</view>
 					<view class="commodity_detail_timeline_item2">
-						<view class="commodity_detail_timeline_tips">顺丰为您持续导航</view>
+						<view class="commodity_detail_timeline_tips" style="background-image: url('../../../static/icon72.png'); background-size: cover;">顺丰为您持续导航</view>
 					</view>
 					<view class="commodity_detail_timeline_item1">
 						<view class="timeline_icon">3</view>
 						<view>确认收货</view>
 					</view>
 					<view class="commodity_detail_timeline_item2">
-						<view class="commodity_detail_timeline_tips">体验中，计费时间段</view>
+						<view class="commodity_detail_timeline_tips" style="background-image: url('../../../static/icon72.png'); background-size: cover;">体验中，计费时间段</view>
 					</view>
 					<view class="commodity_detail_timeline_item1">
 						<view class="timeline_icon">3</view>
 						<view>寄回产品</view>
 					</view>
 					<view class="commodity_detail_timeline_item2">
-						<view class="commodity_detail_timeline_tips">请在到期日次日12点归还产品</view>
+						<view class="commodity_detail_timeline_tips" style="background-image: url('../../../static/icon72.png'); background-size: cover;">请在到期日次日12点归还产品</view>
 					</view>
 					<view class="commodity_detail_timeline_item1">
 						<view class="timeline_icon">3</view>
 						<view>库房验货</view>
 					</view>
 					<view class="commodity_detail_timeline_item2">
-						<view class="commodity_detail_timeline_tips">2个工作日内结算</view>
+						<view class="commodity_detail_timeline_tips" style="background-image: url('../../../static/icon72.png'); background-size: cover;">2个工作日内结算</view>
 					</view>
 					<view class="commodity_detail_timeline_item1">
 						<view class="timeline_icon">3</view>
@@ -166,35 +167,37 @@
 		<view class="commodity_detail_bottom_block"></view>
 		<view class="commodity_detail_sumbit_group">
 			<view class="commodity_detail_sumbit_action">
-				<view class="commodity_detail_action_item">
+				<view class="commodity_detail_action_item" @click.stop="goCustom()">
 					<view class="action_icon1">
 						<image src="../../../static/16.png"></image>
 					</view>
 					<view>客服</view>
 				</view>
-				<view class="commodity_detail_action_item">
+				<view class="commodity_detail_action_item" @click.stop="showPopup()">
 					<view class="action_icon2">
 						<image src="../../../static/24.png" mode=""></image>
 					</view>
 					<view>清单</view>
 				</view>
-				<view class="commodity_detail_action_item">
+				<view class="commodity_detail_action_item" @click.stop="doFavorite()">
 					<view class="action_icon3">
-						<image src="../../../static/30.png" mode=""></image>
+						<image :src="favoriteIcon" mode=""></image>
 					</view>
 					<view>收藏</view>
 				</view>
 			</view>
-			<view class="commodity_detail_add_detailed_list">加入清单</view>
-			<view class="commodity_detail_free">免押租赁</view>
+			<view class="commodity_detail_add_detailed_list" @click.stop="addList()">加入清单</view>
+			<view class="commodity_detail_free" @click.stop="addFree()">免押租赁</view>
 		</view>
-		<popup-layer ref="popup" :direction="direction">
+		<popup-layer ref="popup">
 			<view class="popup_top">
 				<view class="popup_top_title">
 					标配清单
 				</view>
 				<view class="popup_top_desc">
-					<view class="popup_top_desc_thumb"><image src="../../../static/thumb_pic_1.jpg"></image></view>
+					<view class="popup_top_desc_thumb">
+						<image src="../../../static/thumb_pic_1.jpg"></image>
+					</view>
 					<view class="popup_top_desc_title">精灵4pxs大疆无人机</view>
 				</view>
 				<view class="popup_top_list">
@@ -212,34 +215,131 @@
 				我知道了
 			</view>
 		</popup-layer>
+		<view class="clander" v-show="isCalendar">
+			<calendar :lunar="false" :disable-before="true" :fixedHeihgt="true" :start-date="startDate" :end-date="endDate"
+			 @to-click="chooseDate" />
+		</view>
+		<view class="clander_mask" @click.stop="isCalendar=false" v-show="isCalendar"></view>
 	</view>
 </template>
 
 <script>
+	import calendar from "@/components/uni-calendar/uni-calendar"
 	import popupLayer from '@/components/popup-layer/popup-layer.vue';
 	export default {
 		components: {
-			popupLayer
+			popupLayer,
+			calendar
 		},
 		data() {
 			return {
-
+				startDate: '2019-04-03',
+				chooseStartDate: '2019-04-03',
+				chooseEndDate: '2019-04-3',
+				endDate: '2019-12-31',
+				isCalendar: false,
+				isStart: true,
+				isFavorite: false,
+				indicatorColor: 'rgba(255,255,255,0.6)',
+				activeColor: 'rgba(255,255,255,1)',
+				circular: true,
 			};
 		},
-		mounted() {
+		mounted() {},
+		computed: {
+			favoriteIcon() {
+				return this.isFavorite ? '../../../static/icon62.png' : '../../../static/30.png'
+			}
 		},
 		methods: {
+			addFree() {
+				this._showToast('免押租赁')
+				console.log('免押租赁')
+				setTimeout(function() {
+					uni.navigateTo({
+						url: '/pages/ordel/preview_order/preview_order?params='
+					})
+				}, 2000)
+			},
+			addList() {
+				this._showToast('加入清单')
+				console.log('加入清单')
+				setTimeout(function() {
+					uni.switchTab({
+						url: '/pages/merch_bil/merch_bil'
+					})
+				}, 2000)
+			},
+			goCustom() {
+				this._showToast('触发客户')
+				console.log('触发客户')
+			},
+			_showToast(title) {
+				uni.showToast({
+					title: title,
+					icon: 'none',
+					duration: 2000
+				})
+			},
+			doFavorite() {
+				this.isFavorite = !this.isFavorite
+			},
 			showPopup() {
 				this.$refs.popup.show() // 弹出
 			},
 			closePopup() {
 				this.$refs.popup.close()
+			},
+			chooseDate(e) {
+				if (this.isStart) {
+					this.chooseStartDate = e.year + '-' + e.month + '-' + e.date
+					this.isStart = false
+				} else {
+					this.chooseEndDate = e.year + '-' + e.month + '-' + e.date
+					this.isStart = true
+				}
+
+				this.isCalendar = false
+			},
+			checkStartDate() {
+				this.isCalendar = true
+				this.isStart = true
+			},
+			checkEndDate() {
+				this.isCalendar = true
+				this.isStart = false
+			},
+			gotoVip() {
+				uni.navigateTo({
+					url: '/pages/personl/my_privilege/my_privilege'
+				})
 			}
 		},
 	}
 </script>
 
 <style>
+	page {
+		background: #FFFFFF;
+	}
+
+	.clander {
+		position: fixed;
+		width: 100%;
+		left: 0;
+		top: 88.88upx;
+		z-index: 2;
+	}
+
+	.clander_mask {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0.3);
+	}
+
 	.popup_top {
 		width: 90%;
 		height: auto;
@@ -251,30 +351,36 @@
 		padding: 33.33upx 0;
 		text-align: center;
 	}
+
 	.popup_top_desc {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 	}
+
 	.popup_top_desc_thumb {
 		width: 84.72upx;
 		height: 84.72upx;
 		border-radius: 6.94upx;
 	}
+
 	.popup_top_desc_thumb image {
 		width: 100%;
 		height: 100%;
 	}
+
 	.popup_top_desc_title {
 		margin-left: 20.83upx;
 		font-size: 27.77upx;
 	}
+
 	.popup_top_list {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		padding: 27.77upx 0;
 	}
+
 	.popup_top_list_item {
 		display: flex;
 		flex-direction: row;
@@ -283,6 +389,7 @@
 		position: relative;
 		text-indent: 27.77upx;
 	}
+
 	.popup_top_list_item::before {
 		position: absolute;
 		content: ' ';
@@ -308,6 +415,7 @@
 
 	.commodity_detail {
 		width: 100%;
+		height: auto;
 	}
 
 	.commodity_detail_banner {
@@ -522,7 +630,6 @@
 	}
 
 	.commodity_detail_date_count {
-
 		color: #999999;
 		padding: 22.91upx 0 43.75upx 0;
 		display: flex;
@@ -534,7 +641,7 @@
 	}
 
 	.commodity_detail_date_count view {
-		font-size: 19.44upx;
+		font-size: 22.22upx;
 	}
 
 	.commodity_detail_date_count view:not(:first-child) {
@@ -625,8 +732,6 @@
 		font-size: 20.83upx;
 		color: #333333;
 		text-align: center;
-		background: url('@~/../../../static/icon72.png');
-		background-size: cover;
 	}
 
 	.commodity_detail_timeline_item1 {

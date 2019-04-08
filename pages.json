@@ -19,7 +19,7 @@
 			}
 		},
 		{
-			"path": "pages/adder_manger/adder_manger",
+			"path": "pages/personl/adder_manger/adder_manger",
 			"style": {
 				"navigationBarTitleText": "新增/编辑地址"
 			}
@@ -51,7 +51,9 @@
 		},
 		{
 			"path": "pages/class/class",
-			"style": {}
+			"style": {
+				"navigationBarTitleText": "商品分类"
+			}
 		}, {
 			"path": "pages/ordel/ordel",
 			"style": {
@@ -59,61 +61,64 @@
 			}
 		}, {
 			"path": "pages/personl/personl",
-			"style": {}
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
 		}, {
-			"path": "pages/ordel/ordelRes/ordelRes",
-			"style": {}
-		}, {
-			"path": "pages/my_favorite/my_favorite",
+			"path": "pages/personl/my_favorite/my_favorite",
 			"style": {
 				"navigationBarTitleText": "我的收藏"
 			}
-		}
-	    ,{
-            "path" : "pages/login/login",
-            "style" : {
-				"navigationBarTitleText": "登录"
+		}, {
+			"path": "pages/personl/my_privilege/my_privilege",
+			"style": {
+				"navigationBarTitleText": "会员中心"
 			}
-        }
-        ,{
-            "path" : "pages/my_privilege/my_privilege",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/merch_bil/merch_bil",
-            "style": {
-            	"navigationBarTitleText": "商品清单"
-            }
-        }
-        ,{
-            "path" : "pages/order_status/order_status",
-            "style" : {
-				"navigationBarTitleText": "订单状态"
+		}, {
+			"path": "pages/personl/my_footprint/my_footprint",
+			"style": {
+				"navigationBarTitleText": "足迹"
 			}
-        }
-        ,{
-            "path" : "pages/search/search",
-            "style" : {
-				"navigationBarTitleText": "搜索商品"
-			}
-        }
-        ,{
-            "path" : "pages/my_footprint/my_footprint",
-            "style" : {
-            	"navigationBarTitleText": "足迹"
-            }
-        }
-        ,{
-            "path" : "pages/my_credit/my_credit",
-            "style" : {
+		}, {
+			"path": "pages/personl/my_credit/my_credit",
+			"style": {
 				"navigationBarTitleText": "信用额度"
 			}
-        }
-        ,{
-            "path" : "pages/class/commodity_detail/commodity_detail",
-            "style" : {
+		},
+		{
+			"path": "pages/ordel/ordelRes/ordelRes",
+			"style": {
+				"navigationBarTitleText": "订单详情"
+			}
+		}, {
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		}, {
+			"path": "pages/merch_bil/merch_bil",
+			"style": {
+				"navigationBarTitleText": "商品清单"
+			}
+		}, {
+			"path": "pages/order_status/order_status",
+			"style": {
+				"navigationBarTitleText": "订单状态"
+			}
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "搜索商品"
+			}
+		}, {
+			"path": "pages/class/commodity_detail/commodity_detail",
+			"style": {
 				"navigationBarTitleText": "商品详情"
 			}
+		}
+	    ,{
+            "path" : "pages/yes_webview/yes_webview",
+            "style" : {}
         }
     ],
 	"globalStyle": {

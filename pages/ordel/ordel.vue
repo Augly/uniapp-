@@ -121,8 +121,8 @@
 								</view>
 							</view>
 							<view class="itempay">
-								<view class="goOn" @click.stop="toTop">续租</view>
-								<view class="button">去归还</view>
+								<view class="goOn" @click.stop="toTop()">续租</view>
+								<view class="button" @click.stop="toGive()">去归还</view>
 							</view>
 						</view>
 					</view>
@@ -328,13 +328,18 @@
 			toTop() {
 				this.$refs.popup.show()
 			},
+			toGive() {
+				uni.navigateTo({
+					url: '/pages/ordel/ordelRes/ordelRes'
+				})
+			},
 			//确定续租
 			sure(){
 				this.$refs.popup.close()
 			},
 			lookRes() {
 				uni.navigateTo({
-					url: '/pages/ordel/ordelRes/ordelRes',
+					url: '/pages/ordel/preview_order/preview_order',
 					success: res => {},
 					fail: () => {},
 					complete: () => {}
@@ -573,7 +578,6 @@
 			width: 100%;
 			height: auto;
 			.boxCent;
-			border-bottom: 16upx solid rgba(245, 245, 245, 1);
 			padding: 36.11upx;
 			@white();
 

@@ -70,7 +70,7 @@
 <style lang="scss">
 	$steps-line-color:#ebedf0;
 	$steps-text-color:#969799;
-	$steps-title-size:28upx;
+	$steps-title-size: 28upx;
 	$steps-desc-size:24upx;
 	$steps-text-finish-color:#333333;
 	$steps-bg-color:#ffffff;
@@ -128,7 +128,7 @@
 					&-title-container {
 						transform: none;
 						display: block;
-						line-height: 36upx;
+						line-height: 48upx;
 					}
 
 					&-title {
