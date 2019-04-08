@@ -86,7 +86,7 @@ export default {
 		//编辑地址
 		edit(id,index){
 			uni.navigateTo({
-				url: "/pages/adder_manger/adder_manger?id="+id,
+				url: "/pages/personl/adder_manger/adder_manger",
 				success: res => {},
 				fail: () => {},
 				complete: () => {}
@@ -94,7 +94,7 @@ export default {
 		},
 		addAdder(){
 			uni.navigateTo({
-				url: "/pages/adder_manger/adder_manger",
+				url: "/pages/personl/adder_manger/adder_manger",
 				success: res => {},
 				fail: () => {},
 				complete: () => {}

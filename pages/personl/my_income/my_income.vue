@@ -10,7 +10,7 @@
 					<text class="left_bottom">您已邀请了3人，成功注册1人</text>
 				</view>
 				<view class="right">
-					<view class="button tx">
+					<view class="button tx" @click.stop="goCash()">
 						去提现
 					</view>
 					<view class="button share">
@@ -25,7 +25,7 @@
 			</view>
 		</view>
 		<view class="listWrap">
-			<view class="list">
+			<view class="list" v-for="item in 15">
 				<view class="item">
 					<text class="title">邀请好友注册</text>
 					<text class="date">2018-07-12 08:00</text>
@@ -38,11 +38,16 @@
 				</view>
 			</view>
 		</view>
+		<uni-load-more v-show="isLoading" status="loading" :show-icon="true"></uni-load-more>
 	</view>
 </template>
 
 <script>
+	import uniLoadMore from "@/components/uni-load-more/uni-load-more.vue"
 	export default {
+		components: {
+			uniLoadMore
+		},
 		data() {
 			return {
 				tabIndex:0,
@@ -52,21 +57,35 @@
 				},{
 					label:'支出',
 					value:1
-				}]
+				}],
+				isLoading: false
 			};
+		},
+		onReachBottom: function() {
+			//触底的时候请求数据，即为上拉加载更多
+			//为了更加清楚的看到效果，添加了定时器
+			console.log('触发上滑加载')
+			this.getListMoreAjax()
 		},
 		methods:{
 			selectChange(index){
-				
-				uni.showLoading({
-					title:'正在加载中...',
-					success: () => {
-						setTimeout(()=>{
-							this.tabIndex=index
-							uni.hideLoading()
-						},1000)
-					}
+				this.tabIndex=index
+			},
+			goCash() {
+				uni.navigateTo({
+					url: '/pages/ordel/txsq/txsq'
 				})
+			},
+			getListMoreAjax() {
+				uni.showNavigationBarLoading(); //显示加载动画
+				let _this = this
+				this.isLoading = true
+				// 模拟上滑加载，这里启用定时器
+				setTimeout(function() {
+					_this.isLoading = false
+			        uni.hideNavigationBarLoading();//关闭加载动画
+					console.log('加载完毕')
+				}, 2000)
 			}
 		}
 	}
@@ -83,10 +102,12 @@
 
 	.content {
 		@wh100();
+		padding-top: 397.22upx;
 	}
 
 	.headContent {
-		position: relative;
+		position: fixed;
+		top: 61.11upx;
 		width: 100%;
 		height: 397.22upx;
 		background: linear-gradient(90deg, rgba(82, 194, 255, 1), rgba(80, 184, 240, 1));

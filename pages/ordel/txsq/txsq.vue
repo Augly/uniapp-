@@ -9,6 +9,7 @@
 					class="input"
 					placeholder="可转出到卡21637.28元"
 					placeholder-style="font-size: 33.33upx"
+					v-model="allMoney"
 				/>
 				<text class="all" @click="needAll">全部</text>
 			</view>
@@ -30,17 +31,35 @@
 <script>
 export default {
 	data() {
-		return {};
+		return {
+			allMoney: null
+		};
 	},
 	
 	methods:{
 		//全部提现
 		needAll(){
-			
+			this.allMoney = 23.00
 		},
 		//确认提现
 		tx(){
-			
+			uni.showModal({
+				title: '提现',
+				content: '你要提现的金额是' + this.allMoney,
+				showCancel: true,
+				cancelText: '取消',
+				confirmText: '确定',
+				success: res => {
+					uni.showToast({
+						title: '提现成功',
+						mask: false,
+						icon: 'none',
+						duration: 1500
+					});
+				},
+				fail: () => {},
+				complete: () => {}
+			});
 		}
 	}
 };
@@ -68,7 +87,7 @@ page {
 		.moneyGroup {
 			width: 100%;
 			height: 69.44upx;
-			padding-bottom: 26px;
+			padding-bottom: 36.11upx;
 			@flex();
 			border-bottom: 1px solid rgba(217, 214, 214, 1);
 			.title {
@@ -77,6 +96,7 @@ page {
 			}
 			.input {
 				width: 416.66upx;
+				height: 69.44upx;
 				font-size: 69.44upx;
 				color: rgba(19, 141, 216, 1);
 				caret-color: rgba(19, 141, 216, 1);
