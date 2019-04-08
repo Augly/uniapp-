@@ -88,16 +88,16 @@
 				console.log(this.pickerText, e)
 			}
 		},
-		onBackPress() {
-			if (this.$refs.mpvuePicker.showPicker) {
-				this.$refs.mpvuePicker.pickerCancel();
-				return true;
-			}
-			if (this.$refs.mpvueCityPicker.showPicker) {
-				this.$refs.mpvueCityPicker.pickerCancel();
-				return true;
-			}
-		},
+// 		onBackPress() {
+// 			if (this.$refs.mpvuePicker.showPicker) {
+// 				this.$refs.mpvuePicker.pickerCancel();
+// 				return true;
+// 			}
+// 			if (this.$refs.mpvueCityPicker.showPicker) {
+// 				this.$refs.mpvueCityPicker.pickerCancel();
+// 				return true;
+// 			}
+// 		},
 		onUnload() {
 // 			console.log(this.$refs.mpvuePicker)
 // 			if (this.$refs.mpvuePicker.showPicker) {
